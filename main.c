@@ -21,22 +21,19 @@ int main() {
     struct matrix *transform;
 
     edges = new_matrix(4, 1);
-
-    add_edge(edges, 80, 80, 0, 80, 120, 0);
-    add_edge(edges, 80, 120, 0, 120, 120, 0);
-    add_edge(edges, 120, 120, 0, 120, 80, 0);
-    add_edge(edges, 120, 80, 0, 80, 80, 0);
-
-    draw_lines(edges, s, c);
-
+    
+    add_edge(edges, 0, 0, 0, 10, 20, 0);
+    add_edge(edges, 10, 20, 0, 30, 60, 0);
+    add_edge(edges, 30, 60, 0, 40, 10, 0);
+    add_edge(edges,40,10,0,65,78,0);
+    add_edge(edges, 65,78,0, 0, 0, 0);
+    
     int i;
-
-    for(i=0; i<50; i++){
-        scalar_mult(0.85, edges);
-        draw_lines(edges,s,c);
-        scalar_mult(1.55,edges);
+    for (i = 0;i < 200; i++) {
+        scalar_mult(1.03, edges);
         draw_lines(edges,s,c);
     }
+    
 
     display(s);
     save_extension(s, "matrix.png");
